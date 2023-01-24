@@ -1,4 +1,152 @@
-/* You can add global styles to this file, and also import other style files */
-.body{
-    margin: 10px;
+*{
+    margin: 0;
+    padding: 0;
+    /*bu özellik tanımlanan nesnenin width ve height değerlerini değiştirmeyecektir*/
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    /*  %(yüzde) => Bilgisayar ekranının genişliğine göre hareket eden birimdir.*/
+    width: 100%;
+    /* vh => tarayıcının geçerli boyutuna göre boyut belirlenir*/
+    height: 100vh;
+    background: radial-gradient(circle at 10% 20%, rgb(255, 19, 120) 0%, rgb(0, 0, 0) 90.5%);
+
+    /*display:flex; özelliği flexbox/esnek kutu modelini kullanmanızı sağlar*/
+    display: flex;
+    /*justify-content CSS özelliği display:flex; esnek kutusu içerisindeki öğeleri main-axis (ana-eksen) yönünde hizalamaktadır.*/
+    justify-content: center;
+    /*align-items:center; özelliği ile flex kapsayıcı içerisindeki tüm öğeler esnek kapsayıcının çapraz eksenine göre ortalı bir şekilde sıralanır.*/
+    align-items: center;
+}
+.container{
+    background: linear-gradient(109.6deg, rgb(14, 11, 56) 11.2%, rgb(218, 77, 77) 91.1%);
+    width: 400px;
+    height: 70vh;
+    color: white;
+    /*kenar yumuşatma*/
+    border-radius: 20px;
+    /*gölge*/
+    box-shadow: 0 0 10px 10px rgb(213, 113, 113);
+
+}
+
+
+
+.upper-data{
+    position: relative;
+    /*taşan içeriğin geri kalanını gizle*/
+    overflow: hidden;
+    width: 100%;
+    height: 50%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+/*
+    NOT
+    Resmin boyutu ne olursa olsun ortalamak için dış dive yani içinde bulunduğu dive position: relative;
+    resme ise 
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+    özellikleri verilmeli
+*/ 
+.upper-data img{
+    position:absolute;
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+}
+.lower-data{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 50%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+/*
+    Position:relative; => eski konumuna göre yeni konumunu belirleriz top,left,right gibi özellikler ile. Diğer nesneler hala eski konumuna göre durur
+    Position:absolute; => mutlak konumunu değiştiririz ve diğer nesneler eski konumuna göre davranmazlar, sayfadan bağımsız şekilde yerleştirebiliriz.
+
+*/
+
+.weather-data{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /*Bu değerde main-axis (ana eksen) dikeyde blok-ekseni yönündedir.*/
+    flex-direction: column;
+    /*
+    justify-content: center; CSS özelliği esnek kutu içerisindeki öğeleri ana-eksen yönünde ortalayacaktır. 
+    Bir öğeyi esnek kutu içerisinde hem ana-eksende hem de çapraz eksende ortalamak 
+    için alig-items ya da align-content özelliği ile birlikte kullanılabilir.
+    */
+    align-items: center;
+    justify-content: center;
+}
+
+.location{
+    font-size: 1.5em;
+}
+.temperature{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* .more-info-label{
+    margin-left: 10px;
+    font-size: 0.8em;
+    fon
+    color: rgb(202, 51, 97);
+} */
+.more-info-container{
+    /* flex CSS özelliği esnek bir öğenin nasıl küçüleceğini, büyüyeceğini ve diğer esnek öğelere göre nasıl boyutlanacağını belirtir. */
+    flex: 1;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-top: 1em;
+
+
+    display: flex;
+    /*ana eksen yönünde yatayda sıralanacak, flex-direction(yazma yönü)*/
+    flex-direction: row;
+    /*kutuların içindeki nesnelerin taşmasını önlemek için eğer taşar ise bi alt satıra inecek*/
+    flex-wrap: wrap;
+}
+
+.info-block{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+}
+.info-block-label{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.info-block-label img{
+    width: 2em;
+}
+.info-block-label span{
+     font-size: 0.8em;
+}
+.info-block-value{
+    width: 50%;
+    display: flex;
+    /*justify-content: flex-start varsayılan değerdir öğeleri ana-eksene göre en baştan hizalar.*/
+    justify-content: flex-start;
+    align-items: center;
 }

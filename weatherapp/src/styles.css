@@ -104,12 +104,6 @@ body{
     font-weight: bold;
 }
 
-/* .more-info-label{
-    margin-left: 10px;
-    font-size: 0.8em;
-    fon
-    color: rgb(202, 51, 97);
-} */
 .more-info-container{
     /* flex CSS özelliği esnek bir öğenin nasıl küçüleceğini, büyüyeceğini ve diğer esnek öğelere göre nasıl boyutlanacağını belirtir. */
     flex: 1;
